@@ -348,7 +348,7 @@
         <div class="products">
 
 
-            <!-- PRODUCT 1 -->
+            <!-- مغز صد در صد سالم -->
 
             <div class="product">
 
@@ -381,7 +381,7 @@
             </div>
 
 
-            <!-- PRODUCT 2 -->
+            <!-- قلب برای عشاق ❤️ -->
 
             <div class="product">
 
@@ -410,7 +410,7 @@
             </div>
 
 
-            <!-- PRODUCT 3 -->
+            <!-- خیلی بی تربیتیه نمیشه گفت -->
 
             <div class="product">
 
@@ -435,7 +435,7 @@
                     </div>
 
                     <button class="buy-btn sold-out"
-                            onclick="showMessage('این یکی هم فروخته شده. واقعاً سریع خرید می‌کنید.')">
+                            onclick="showMessage('این یکی هم فروخته شده. واقعاً نمی‌دونم چرا آنقدر در طرفداه.')">
                         SOLD OUT
                     </button>
 
@@ -443,7 +443,7 @@
             </div>
 
 
-            <!-- PRODUCT 4 -->
+            <!-- کلیه برای الکلی ها -->
 
             <div class="product">
 
@@ -472,7 +472,7 @@
             </div>
 
 
-            <!-- PRODUCT 5 -->
+            <!-- چشم برای نابینایان غیر مادرزادی -->
 
             <div class="product">
 
@@ -501,7 +501,7 @@
             </div>
 
 
-            <!-- PRODUCT 6 -->
+            <!-- عاقبت سیگار -->
 
             <div class="product">
 
@@ -518,7 +518,7 @@
                     </p>
 
                     <div class="price">
-                        $79.99
+                        $.99
                     </div>
 
                     <button class="buy-btn"
@@ -530,7 +530,7 @@
             </div>
 
 
-            <!-- PRODUCT 7 -->
+            <!-- کلیه های یکی بخر دوتا ببر -->
 
             <div class="product">
 
@@ -559,7 +559,7 @@
             </div>
 
 
-            <!-- PRODUCT 8 -->
+            <!-- اسکلت کامل بامرام و وفادار -->
 
             <div class="product">
 
