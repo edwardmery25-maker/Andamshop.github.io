@@ -1,43 +1,77 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Totally Normal Store</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3ead8;
-            color: #172a46;
+            font-family: "Inter", Arial, sans-serif;
+            background: #ffffff;
+            color: #142640;
         }
 
-        /* HEADER */
+
+        button {
+            font-family: inherit;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-            background-color: #172a46;
-            color: #f3ead8;
-            padding: 18px 6%;
+            height: 78px;
+            background: #142640;
+            color: white;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            padding: 0 6%;
+
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
         }
 
+
         .logo img {
-            height: 55px;
+            height: 52px;
             width: auto;
             display: block;
         }
+
 
         nav {
             display: flex;
@@ -45,616 +79,1010 @@
             gap: 28px;
         }
 
+
         nav a {
-            color: #f3ead8;
-            text-decoration: none;
-            font-size: 15px;
-            cursor: pointer;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
         }
+
 
         nav a:hover {
-            opacity: 0.7;
+            opacity: 0.65;
         }
 
-        /* SEARCH */
 
-        .search-btn {
-            background: none;
-            border: none;
-            color: #f3ead8;
-            font-size: 25px;
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-button {
+            width: 46px;
+            height: 40px;
+
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 20px;
+
+            background: transparent;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             cursor: pointer;
-            padding: 0;
+
+            transition: background 0.2s;
         }
 
-        .search-btn:hover {
-            opacity: 0.7;
+
+        .search-button:hover {
+            background: rgba(255,255,255,0.12);
         }
 
-        /* HERO */
+
+        .search-icon {
+            width: 17px;
+            height: 17px;
+
+            border: 2px solid white;
+            border-radius: 50%;
+
+            position: relative;
+        }
+
+
+        .search-icon::after {
+            content: "";
+
+            width: 7px;
+            height: 2px;
+
+            background: white;
+
+            position: absolute;
+
+            right: -5px;
+            bottom: -3px;
+
+            transform: rotate(45deg);
+
+            border-radius: 2px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
+            background: #142640;
+            color: white;
+
+            min-height: 400px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             text-align: center;
-            padding: 90px 20px 70px;
-            background-color: #e8dcc4;
+
+            padding: 70px 20px;
         }
+
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+
+        .hero-small {
+            font-size: 12px;
+            letter-spacing: 6px;
+
+            margin-bottom: 20px;
+
+            opacity: 0.75;
+        }
+
 
         .hero h1 {
-            font-size: 52px;
-            margin-bottom: 15px;
-            color: #172a46;
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: clamp(48px, 7vw, 82px);
+
+            line-height: 1;
+
+            margin-bottom: 22px;
         }
+
 
         .hero p {
-            font-size: 18px;
-            color: #394b63;
+            font-size: 19px;
+            opacity: 0.85;
         }
 
-        /* PRODUCTS */
+
+        /* =========================
+           PRODUCTS SECTION
+        ========================= */
 
         .products-section {
-            padding: 70px 6%;
+            padding: 80px 6% 100px;
         }
 
-        .section-title {
+
+        .section-heading {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
         }
 
-        .section-title h2 {
-            font-size: 34px;
-            margin-bottom: 10px;
+
+        .section-heading small {
+            letter-spacing: 5px;
+            font-size: 11px;
+            font-weight: 600;
+
+            color: #53657d;
         }
 
-        .section-title p {
-            color: #5c6470;
+
+        .section-heading h2 {
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: 42px;
+
+            margin: 12px 0;
+
+            color: #142640;
         }
+
+
+        .section-heading p {
+            color: #667386;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           PRODUCT GRID
+        ========================= */
 
         .products {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
+
             gap: 28px;
         }
 
+
+        /* =========================
+           PRODUCT CARD
+        ========================= */
+
         .product {
-            background-color: #fffaf0;
-            border: 1px solid #d6c9ae;
-            border-radius: 12px;
+            background: white;
+
+            border: 1px solid #dce1e8;
+
+            border-radius: 10px;
+
             overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
         }
+
 
         .product:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(23, 42, 70, 0.12);
+
+            box-shadow:
+                0 15px 35px rgba(20,38,64,0.10);
         }
+
+
+        /* PRODUCT IMAGE */
+
+        .product-image-container {
+            position: relative;
+
+            width: 100%;
+            height: 260px;
+
+            overflow: hidden;
+
+            background: #eef1f5;
+        }
+
 
         .product-image {
             width: 100%;
-            height: 230px;
+            height: 100%;
+
             object-fit: cover;
+
             display: block;
-            background-color: #ddd2bb;
         }
 
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
-
-        .product-info p {
-            color: #69717c;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .buy-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #172a46;
-            color: #f3ead8;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .buy-btn:hover {
-            background-color: #263e60;
-        }
 
         /* SOLD OUT */
 
-        .sold-out {
-            background-color: #9a9a94;
+        .sold-badge {
+            position: absolute;
+
+            top: 14px;
+            left: 14px;
+
+            background: #142640;
+
+            color: white;
+
+            padding: 7px 11px;
+
+            border-radius: 5px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* PRODUCT INFO */
+
+        .product-info {
+            padding: 22px;
+        }
+
+
+        .product-title {
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: 20px;
+
+            color: #142640;
+
+            margin-bottom: 10px;
+
+            line-height: 1.4;
+        }
+
+
+        .product-description {
+            color: #718096;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            min-height: 44px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .price {
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: #142640;
+
+            margin-bottom: 16px;
+        }
+
+
+        /* BUY BUTTON */
+
+        .buy-button {
+            width: 100%;
+
+            height: 44px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: #142640;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: background 0.2s;
+        }
+
+
+        .buy-button:hover {
+            background: #233c5d;
+        }
+
+
+        /* SOLD BUTTON */
+
+        .sold-button {
+            background: #d8dde4;
+
+            color: #536174;
+
             cursor: not-allowed;
         }
 
-        .sold-out:hover {
-            background-color: #9a9a94;
+
+        .sold-button:hover {
+            background: #d8dde4;
         }
 
-        .sold-label {
-            display: inline-block;
-            background-color: #172a46;
-            color: #f3ead8;
-            padding: 5px 9px;
-            border-radius: 5px;
-            font-size: 11px;
-            margin-bottom: 12px;
-        }
 
-        /* POPUP */
+        /* =========================
+           POPUP
+        ========================= */
 
         .popup-overlay {
             display: none;
+
             position: fixed;
+
             inset: 0;
-            background-color: rgba(10, 20, 35, 0.65);
-            z-index: 1000;
+
+            background: rgba(10,20,35,0.65);
+
+            z-index: 5000;
+
             align-items: center;
             justify-content: center;
+
             padding: 20px;
         }
 
+
         .popup {
-            background-color: #fffaf0;
-            color: #172a46;
             width: 100%;
-            max-width: 480px;
+
+            max-width: 470px;
+
+            background: white;
+
+            border-radius: 12px;
+
             padding: 35px;
-            border-radius: 14px;
+
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.3);
+
+            animation: popupAppear 0.18s ease-out;
         }
 
-        .popup p {
-            font-size: 18px;
-            line-height: 1.8;
+
+        @keyframes popupAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        .popup-message {
+            color: #142640;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
             margin-bottom: 25px;
         }
 
-        .close-btn {
-            background-color: #172a46;
-            color: #f3ead8;
+
+        .close-button {
             border: none;
+
+            background: #142640;
+
+            color: white;
+
             padding: 11px 30px;
-            border-radius: 7px;
+
+            border-radius: 6px;
+
             cursor: pointer;
-            font-size: 15px;
+
+            font-size: 13px;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            background-color: #172a46;
-            color: #f3ead8;
+            background: #142640;
+
+            color: white;
+
+            padding: 35px 6%;
+
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 30px;
         }
 
-        /* RESPONSIVE */
+
+        footer p {
+            opacity: 0.7;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 1000px) {
+
             .products {
                 grid-template-columns: repeat(2, 1fr);
             }
+
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 650px) {
+
             header {
-                padding: 15px 20px;
+                height: 68px;
+
+                padding: 0 20px;
             }
 
+
             .logo img {
-                height: 45px;
+                height: 44px;
             }
+
 
             nav {
                 gap: 14px;
             }
 
+
             nav a {
                 display: none;
             }
 
-            .hero {
-                padding: 65px 20px;
+
+            .search-button {
+                width: 43px;
+                height: 37px;
             }
 
-            .hero h1 {
-                font-size: 38px;
+
+            .hero {
+                min-height: 330px;
+
+                padding: 60px 20px;
             }
+
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .products-section {
+                padding: 60px 20px;
+            }
+
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
 
             .products {
                 grid-template-columns: 1fr;
             }
+
+
+            .product-image-container {
+                height: 280px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <header>
 
         <a href="#" class="logo">
-            <img src="logo.png" alt="Store Logo">
+
+            <img
+                src="logo.png"
+                alt="Totally Normal Store">
+
         </a>
 
+
         <nav>
-            <a href="#" onclick="showMessage('به صفحه اصلی خوش آمدید.')">
+
+            <a
+                href="#"
+                onclick="showMessage('به صفحه اصلی خوش آمدید.')">
+
                 Home
+
             </a>
 
-            <a href="#products" onclick="showMessage('چیزی برای دیدن نیست .')">
+
+            <a
+                href="#products">
+
                 Products
+
             </a>
 
-            <a href="#" onclick="showMessage('اطلاعاتی درباره ما وجود ندارد.')">
+
+            <a
+                href="#"
+                onclick="showMessage('اطلاعاتی درباره ما وجود ندارد.')">
+
                 About
+
             </a>
 
-            <a href="#" onclick="showMessage('لطفاً مزاحم نشوید.')">
+
+            <a
+                href="#"
+                onclick="showMessage('لطفاً مزاحم نشوید.')">
+
                 Contact
+
             </a>
 
-            <!-- SEARCH ICON -->
 
-            <button class="search-btn"
-                    onclick="showMessage('🔍 توی بدن خودت دنبالش بگرد، اینجا چیزی نیست.')">
-                🔍
+            <!-- SEARCH -->
+
+            <button
+                class="search-button"
+                onclick="showMessage('🔍 توی بدن خودت دنبالش بگرد، اینجا چیزی نیست.')"
+                aria-label="Search">
+
+                <span class="search-icon"></span>
+
             </button>
+
         </nav>
 
     </header>
 
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
-        <h1>Welcome.</h1>
+        <div class="hero-content">
 
-        <p>
-            Everything you need. Probably.
-        </p>
+            <div class="hero-small">
+                WELCOME
+            </div>
+
+
+            <h1>
+                Totally Normal Store
+            </h1>
+
+
+            <p>
+                From eyes to feet, what ever you need!
+            </p>
+
+        </div>
 
     </section>
 
 
-    <!-- PRODUCTS -->
 
-    <section class="products-section" id="products">
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
 
-        <div class="section-title">
-            <h2>Our Products</h2>
-            <p>Quality products for absolutely no reason.</p>
+    <section
+        class="products-section"
+        id="products">
+
+
+        <div class="section-heading">
+
+            <small>
+                OUR PRODUCTS
+            </small>
+
+
+            <h2>
+                Some Totally Normal Stuff
+            </h2>
+
+
+            <p>
+                Quality products for absolutely no reason.
+            </p>
+
         </div>
+
 
 
         <div class="products">
 
 
-            <!-- مغز صد در صد سالم -->
+
+            <!-- PRODUCT 1 -->
 
             <div class="product">
 
-                <img src="product1.jpg"
-                     alt="Product 1"
-                     class="product-image">
+                <div class="product-image-container">
 
-                <div class="product-info">
+                    <img
+                        src="product1.jpg"
+                        alt="برای نیازمندانِ آی کیو متوسط"
+                        class="product-image">
 
-                    <span class="sold-label">
+
+                    <span class="sold-badge">
                         SOLD OUT
                     </span>
 
-                    <h3>Product One</h3>
+                </div>
 
-                    <p>
-                        A completely normal product.
+
+                <div class="product-info">
+
+                    <h3 class="product-title">
+                        برای نیازمندانِ آی کیو متوسط
+                    </h3>
+
+
+                    <p class="product-description">
+                        برای تمامی افراد حتی خودم توصیه میشه
                     </p>
 
+
                     <div class="price">
-                        $29.99
+                        29,900 تومان
                     </div>
 
-                    <button class="buy-btn sold-out"
-                            onclick="showMessage('این محصول فروخته شده. حتی خودمون هم نمی‌دونیم به کی.')">
+
+                    <button
+                        class="buy-button sold-button"
+                        onclick="showMessage('این محصول فروخته شده. حتی خودمون هم نمی‌دونیم به کی.')">
+
                         SOLD OUT
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- قلب برای عشاق ❤️ -->
+
+            <!-- PRODUCT 2 -->
 
             <div class="product">
 
-                <img src="product2.jpg"
-                     alt="Product 2"
-                     class="product-image">
+                <div class="product-image-container">
+
+                    <img
+                        src="product2.jpg"
+                        alt="قلب برای عشاق"
+                        class="product-image">
+
+                </div>
+
 
                 <div class="product-info">
 
-                    <h3>Product Two</h3>
+                    <h3 class="product-title">
+                        قلب برای عشاق ❤️
+                    </h3>
 
-                    <p>
-                        Very useful. Probably.
+
+                    <p class="product-description">
+                        عشقت رو خوشحال کن، کلی ذوق میکنه!!
                     </p>
 
+
                     <div class="price">
-                        $39.99
+                        39,900 تومان
                     </div>
 
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
+
+                    <button
+                        class="buy-button"
+                        onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+
+                        خرید
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- خیلی بی تربیتیه نمیشه گفت -->
+
+            <!-- PRODUCT 3 -->
 
             <div class="product">
 
-                <img src="product3.jpg"
-                     alt="Product 3"
-                     class="product-image">
+                <div class="product-image-container">
 
-                <div class="product-info">
+                    <img
+                        src="product3.jpg"
+                        alt="خیلی بی تربیته نمیشه گفت"
+                        class="product-image">
 
-                    <span class="sold-label">
+
+                    <span class="sold-badge">
                         SOLD OUT
                     </span>
 
-                    <h3>Product Three</h3>
+                </div>
 
-                    <p>
-                        You missed your chance.
+
+                <div class="product-info">
+
+                    <h3 class="product-title">
+                        خیلی بی تربیته نمیشه گفت
+                    </h3>
+
+
+                    <p class="product-description">
+                        چرا باید کسی اینو بخره
                     </p>
 
+
                     <div class="price">
-                        $49.99
+                        49,900 تومان
                     </div>
 
-                    <button class="buy-btn sold-out"
-                            onclick="showMessage('این یکی هم فروخته شده. واقعاً نمی‌دونم چرا آنقدر در طرفداه.')">
+
+                    <button
+                        class="buy-button sold-button"
+                        onclick="showMessage('این یکی هم فروخته شده. واقعاً سریع خرید می‌کنید.')">
+
                         SOLD OUT
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- کلیه برای الکلی ها -->
+
+            <!-- PRODUCT 4 -->
 
             <div class="product">
 
-                <img src="product4.jpg"
-                     alt="Product 4"
-                     class="product-image">
+                <div class="product-image-container">
+
+                    <img
+                        src="product4.jpg"
+                        alt="برای الکی ها"
+                        class="product-image">
+
+                </div>
+
 
                 <div class="product-info">
 
-                    <h3>Product Four</h3>
+                    <h3 class="product-title">
+                        برای الکی ها
+                    </h3>
 
-                    <p>
-                        Nobody knows what this does.
+
+                    <p class="product-description">
+                        الکل خوب نیست
                     </p>
 
+
                     <div class="price">
-                        $59.99
+                        59,900 تومان
                     </div>
 
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
+
+                    <button
+                        class="buy-button"
+                        onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+
+                        خرید
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- چشم برای نابینایان غیر مادرزادی -->
+
+            <!-- PRODUCT 5 -->
 
             <div class="product">
 
-                <img src="product5.jpg"
-                     alt="Product 5"
-                     class="product-image">
+                <div class="product-image-container">
+
+                    <img
+                        src="product5.jpg"
+                        alt="عاقبت سیگار"
+                        class="product-image">
+
+                </div>
+
 
                 <div class="product-info">
 
-                    <h3>Product Five</h3>
+                    <h3 class="product-title">
+                        عاقبت سیگار
+                    </h3>
 
-                    <p>
-                        Surprisingly expensive.
+
+                    <p class="product-description">
+                        به نظر سالم میاد
                     </p>
 
+
                     <div class="price">
-                        $69.99
+                        69,900 تومان
                     </div>
 
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
+
+                    <button
+                        class="buy-button"
+                        onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+
+                        خرید
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- عاقبت سیگار -->
+
+            <!-- PRODUCT 6 -->
 
             <div class="product">
 
-                <img src="product6.jpg"
-                     alt="Product 6"
-                     class="product-image">
+                <div class="product-image-container">
+
+                    <img
+                        src="product6.jpg"
+                        alt="نگاهی تازه"
+                        class="product-image">
+
+                </div>
+
 
                 <div class="product-info">
 
-                    <h3>Product Six</h3>
+                    <h3 class="product-title">
+                        نگاهی تازه
+                    </h3>
 
-                    <p>
-                        We think it's useful.
+
+                    <p class="product-description">
+                        برای دوستداران
                     </p>
 
+
                     <div class="price">
-                        $.99
+                        79,900 تومان
                     </div>
 
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
+
+                    <button
+                        class="buy-button"
+                        onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+
+                        خرید
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- کلیه های یکی بخر دوتا ببر -->
+
+            <!-- PRODUCT 7 -->
 
             <div class="product">
 
-                <img src="product7.jpg"
-                     alt="Product 7"
-                     class="product-image">
+                <div class="product-image-container">
+
+                    <img
+                        src="product7.jpg"
+                        alt="کاملا سالم، مشابه تصویر"
+                        class="product-image">
+
+                </div>
+
 
                 <div class="product-info">
 
-                    <h3>Product Seven</h3>
+                    <h3 class="product-title">
+                        کاملا سالم، مشابه تصویر
+                    </h3>
 
-                    <p>
-                        Nobody asked for this.
+
+                    <p class="product-description">
+                        یکی بخر دوتا ببر
                     </p>
 
+
                     <div class="price">
-                        $89.99
+                        89,900 تومان
                     </div>
 
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
+
+                    <button
+                        class="buy-button"
+                        onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+
+                        خرید
+
                     </button>
 
                 </div>
+
             </div>
 
 
-            <!-- اسکلت کامل بامرام و وفادار -->
+
+            <!-- PRODUCT 8 -->
 
             <div class="product">
 
-                <img src="product8.jpg"
-                     alt="Product 8"
-                     class="product-image">
+                <div class="product-image-container">
 
-                <div class="product-info">
-
-                    <h3>Product Eight</h3>
-
-                    <p>
-                        The final mistake.
-                    </p>
-
-                    <div class="price">
-                        $99.99
-                    </div>
-
-                    <button class="buy-btn"
-                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
-                        Buy Now
-                    </button>
-
-                </div>
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- POPUP -->
-
-    <div class="popup-overlay" id="popup">
-
-        <div class="popup">
-
-            <p id="popupMessage"></p>
-
-            <button class="close-btn"
-                    onclick="closeMessage()">
-                فهمیدم
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p>
-            © 2026 Totally Normal Store
-        </p>
-
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        function showMessage(message) {
-
-            document.getElementById("popupMessage").innerText = message;
-
-            document.getElementById("popup").style.display = "flex";
-
-        }
-
-
-        function closeMessage() {
-
-            document.getElementById("popup").style.display = "none";
-
-        }
-
-
-        /* Close popup by clicking outside */
-
-        document.getElementById("popup").addEventListener("click", function(event) {
-
-            if (event.target === this) {
-
-                closeMessage();
-
-            }
-
-        });
-
-    </script>
-
-</body>
-</html>
+                    <img
+                        src="product8.jpg"
+                        alt="جناب اسک
