@@ -1,6 +1,5 @@
-# Andamshop.github.io
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <title>Totally Normal Store</title>
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,299 +15,646 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #222;
+            background-color: #f3ead8;
+            color: #172a46;
         }
+
+        /* HEADER */
 
         header {
-            background: #111;
-            color: white;
-            padding: 20px 8%;
+            background-color: #172a46;
+            color: #f3ead8;
+            padding: 18px 6%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 24px;
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
         nav a {
-            color: white;
+            color: #f3ead8;
             text-decoration: none;
-            margin-left: 25px;
+            font-size: 15px;
             cursor: pointer;
         }
 
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
+        nav a:hover {
+            opacity: 0.7;
         }
 
-        .hero h2 {
-            font-size: 48px;
+        /* SEARCH */
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: #f3ead8;
+            font-size: 25px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .search-btn:hover {
+            opacity: 0.7;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 70px;
+            background-color: #e8dcc4;
+        }
+
+        .hero h1 {
+            font-size: 52px;
             margin-bottom: 15px;
+            color: #172a46;
         }
 
         .hero p {
-            color: #666;
             font-size: 18px;
+            color: #394b63;
         }
 
-        .products {
-            padding: 60px 8%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+        /* PRODUCTS */
+
+        .products-section {
+            padding: 70px 6%;
         }
 
-        .product {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .section-title {
             text-align: center;
+            margin-bottom: 45px;
         }
 
-        .product-image {
-            height: 180px;
-            background: #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-
-        .product h3 {
+        .section-title h2 {
+            font-size: 34px;
             margin-bottom: 10px;
         }
 
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .section-title p {
+            color: #5c6470;
         }
 
-        button {
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .product {
+            background-color: #fffaf0;
+            border: 1px solid #d6c9ae;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(23, 42, 70, 0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            background-color: #ddd2bb;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #69717c;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #172a46;
+            color: #f3ead8;
             border: none;
-            background: #111;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 6px;
+            border-radius: 7px;
             cursor: pointer;
             font-size: 15px;
         }
 
-        button:hover {
-            background: #333;
+        .buy-btn:hover {
+            background-color: #263e60;
         }
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 30px;
+        /* SOLD OUT */
+
+        .sold-out {
+            background-color: #9a9a94;
+            cursor: not-allowed;
+        }
+
+        .sold-out:hover {
+            background-color: #9a9a94;
+        }
+
+        .sold-label {
+            display: inline-block;
+            background-color: #172a46;
+            color: #f3ead8;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 11px;
+            margin-bottom: 12px;
         }
 
         /* POPUP */
 
-        .popup-background {
+        .popup-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.65);
+            background-color: rgba(10, 20, 35, 0.65);
+            z-index: 1000;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            padding: 20px;
         }
 
         .popup {
-            background: white;
-            width: 90%;
-            max-width: 450px;
-            padding: 40px;
-            border-radius: 15px;
+            background-color: #fffaf0;
+            color: #172a46;
+            width: 100%;
+            max-width: 480px;
+            padding: 35px;
+            border-radius: 14px;
             text-align: center;
-            animation: popupAnimation 0.2s ease;
-        }
-
-        .popup h2 {
-            margin-bottom: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .popup p {
-            color: #555;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.8;
             margin-bottom: 25px;
         }
 
-        @keyframes popupAnimation {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
+        .close-btn {
+            background-color: #172a46;
+            color: #f3ead8;
+            border: none;
+            padding: 11px 30px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
 
-            to {
-                transform: scale(1);
-                opacity: 1;
+        /* FOOTER */
+
+        footer {
+            background-color: #172a46;
+            color: #f3ead8;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 30px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
+        @media (max-width: 650px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<header>
+    <!-- HEADER -->
 
-    <h1>Totally Normal Store</h1>
+    <header>
 
-    <nav>
-        <a onclick="showMessage('home')">Home</a>
-        <a onclick="showMessage('products')">Products</a>
-        <a onclick="showMessage('about')">About</a>
-        <a onclick="showMessage('contact')">Contact</a>
-    </nav>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Store Logo">
+        </a>
 
-</header>
+        <nav>
+            <a href="#" onclick="showMessage('به صفحه اصلی خوش آمدید.')">
+                Home
+            </a>
 
+            <a href="#products" onclick="showMessage('چیزی برای دیدن نیست .')">
+                Products
+            </a>
 
-<section class="hero">
+            <a href="#" onclick="showMessage('اطلاعاتی درباره ما وجود ندارد.')">
+                About
+            </a>
 
-    <h2>Welcome.</h2>
+            <a href="#" onclick="showMessage('لطفاً مزاحم نشوید.')">
+                Contact
+            </a>
 
-    <p>Everything you need. Probably.</p>
+            <!-- SEARCH ICON -->
 
-</section>
+            <button class="search-btn"
+                    onclick="showMessage('🔍 توی بدن خودت دنبالش بگرد، اینجا چیزی نیست.')">
+                🔍
+            </button>
+        </nav>
 
-
-<section class="products">
-
-    <div class="product">
-
-        <div class="product-image">
-            PRODUCT IMAGE
-        </div>
-
-        <h3>Mysterious Object</h3>
-
-        <div class="price">€29.99</div>
-
-        <button onclick="showMessage('buy')">
-            BUY NOW
-        </button>
-
-    </div>
+    </header>
 
 
-    <div class="product">
+    <!-- HERO -->
 
-        <div class="product-image">
-            PRODUCT IMAGE
-        </div>
+    <section class="hero">
 
-        <h3>Definitely Real Product</h3>
+        <h1>Welcome.</h1>
 
-        <div class="price">€49.99</div>
-
-        <button onclick="showMessage('buy')">
-            BUY NOW
-        </button>
-
-    </div>
-
-
-    <div class="product">
-
-        <div class="product-image">
-            PRODUCT IMAGE
-        </div>
-
-        <h3>Suspiciously Cheap Thing</h3>
-
-        <div class="price">€9.99</div>
-
-        <button onclick="showMessage('buy')">
-            BUY NOW
-        </button>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    © 2026 Totally Normal Store
-
-</footer>
-
-
-<!-- POPUP -->
-
-<div class="popup-background" id="popup">
-
-    <div class="popup">
-
-        <h2 id="popup-title">
-            SYSTEM MESSAGE
-        </h2>
-
-        <p id="popup-text">
-            Something happened.
+        <p>
+            Everything you need. Probably.
         </p>
 
-        <button onclick="closePopup()">
-            OK
-        </button>
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="products">
+
+        <div class="section-title">
+            <h2>Our Products</h2>
+            <p>Quality products for absolutely no reason.</p>
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product">
+
+                <img src="product1.jpg"
+                     alt="Product 1"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <span class="sold-label">
+                        SOLD OUT
+                    </span>
+
+                    <h3>Product One</h3>
+
+                    <p>
+                        A completely normal product.
+                    </p>
+
+                    <div class="price">
+                        $29.99
+                    </div>
+
+                    <button class="buy-btn sold-out"
+                            onclick="showMessage('این محصول فروخته شده. حتی خودمون هم نمی‌دونیم به کی.')">
+                        SOLD OUT
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product">
+
+                <img src="product2.jpg"
+                     alt="Product 2"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Two</h3>
+
+                    <p>
+                        Very useful. Probably.
+                    </p>
+
+                    <div class="price">
+                        $39.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product">
+
+                <img src="product3.jpg"
+                     alt="Product 3"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <span class="sold-label">
+                        SOLD OUT
+                    </span>
+
+                    <h3>Product Three</h3>
+
+                    <p>
+                        You missed your chance.
+                    </p>
+
+                    <div class="price">
+                        $49.99
+                    </div>
+
+                    <button class="buy-btn sold-out"
+                            onclick="showMessage('این یکی هم فروخته شده. واقعاً سریع خرید می‌کنید.')">
+                        SOLD OUT
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product">
+
+                <img src="product4.jpg"
+                     alt="Product 4"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Four</h3>
+
+                    <p>
+                        Nobody knows what this does.
+                    </p>
+
+                    <div class="price">
+                        $59.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product">
+
+                <img src="product5.jpg"
+                     alt="Product 5"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Five</h3>
+
+                    <p>
+                        Surprisingly expensive.
+                    </p>
+
+                    <div class="price">
+                        $69.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="product">
+
+                <img src="product6.jpg"
+                     alt="Product 6"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Six</h3>
+
+                    <p>
+                        We think it's useful.
+                    </p>
+
+                    <div class="price">
+                        $79.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 7 -->
+
+            <div class="product">
+
+                <img src="product7.jpg"
+                     alt="Product 7"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Seven</h3>
+
+                    <p>
+                        Nobody asked for this.
+                    </p>
+
+                    <div class="price">
+                        $89.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 8 -->
+
+            <div class="product">
+
+                <img src="product8.jpg"
+                     alt="Product 8"
+                     class="product-image">
+
+                <div class="product-info">
+
+                    <h3>Product Eight</h3>
+
+                    <p>
+                        The final mistake.
+                    </p>
+
+                    <div class="price">
+                        $99.99
+                    </div>
+
+                    <button class="buy-btn"
+                            onclick="showMessage('به‌عنوان یه مدافع حقوق حیوانات، همچین کار غیرانسانی‌ای رو نمی‌ذارم بکنی. 🐦‍⬛‼️❌')">
+                        Buy Now
+                    </button>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- POPUP -->
+
+    <div class="popup-overlay" id="popup">
+
+        <div class="popup">
+
+            <p id="popupMessage"></p>
+
+            <button class="close-btn"
+                    onclick="closeMessage()">
+                فهمیدم
+            </button>
+
+        </div>
 
     </div>
 
-</div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Totally Normal Store
+        </p>
+
+    </footer>
 
 
-<script>
+    <!-- JAVASCRIPT -->
 
-    const messages = {
+    <script>
 
-        home:
-        "چطوری باور کردی من همچین کار غیرانسانی‌ای می‌کنم؟ 😂",
+        function showMessage(message) {
 
-        products:
-        "محصولات اینجا کاملاً واقعی هستند. احتمالاً.",
+            document.getElementById("popupMessage").innerText = message;
 
-        about:
-        "واقعاً می‌خوای درباره من بدونی؟ انتخاب عجیبیه.",
+            document.getElementById("popup").style.display = "flex";
 
-        contact:
-        "می‌خواستی با من تماس بگیری؟ چرا؟",
-
-        buy:
-        "چطوری باور کردی من همچین کار غیرانسانی‌ای می‌کنم؟ 😂"
-
-    };
+        }
 
 
-    function showMessage(type) {
+        function closeMessage() {
 
-        document.getElementById("popup-text").innerText =
-            messages[type];
+            document.getElementById("popup").style.display = "none";
 
-        document.getElementById("popup").style.display =
-            "flex";
-    }
+        }
 
 
-    function closePopup() {
+        /* Close popup by clicking outside */
 
-        document.getElementById("popup").style.display =
-            "none";
-    }
+        document.getElementById("popup").addEventListener("click", function(event) {
 
-</script>
+            if (event.target === this) {
+
+                closeMessage();
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
